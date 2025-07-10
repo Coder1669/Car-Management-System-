@@ -121,6 +121,10 @@ public class App {
 			{
 				Service.countCarsColor();
 			}
+			break;
+			
+			default:
+				System.out.println("invalid choice");
 			}
 			
 			System.out.println("Press y/Y to continue other key to exit: ");
