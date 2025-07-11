@@ -6,16 +6,13 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Service {
-	
-
-
 	public static void insertData(List<Car> carList)
 	{
-		Connection con = DB.createConnection();
+		Connection conn = DB.createConnection();
 		String query = Query.insert;
 		
 		try {
-			PreparedStatement preparedStatement = con.prepareStatement(query);
+			PreparedStatement preparedStatement = conn.prepareStatement(query);
 			
 			for(Car car:carList)
 			{
@@ -34,6 +31,8 @@ public class Service {
 			else {
 				System.out.println("Data not entered");
 			}
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,6 +62,8 @@ public class Service {
 			}
 			
 			str.displayAllCars();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,6 +97,8 @@ public class Service {
 			}
 			
 			str.displayAllCars();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,6 +130,8 @@ public class Service {
 			}
 			
 			str.displayAllCars();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -160,6 +165,8 @@ public class Service {
 			}
 			
 			str.displayAllCars();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -190,6 +197,8 @@ public class Service {
 			}
 			
 			str.sortAscending();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -220,6 +229,8 @@ public class Service {
 			}
 			
 			str.sortDescendingPrize();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -249,7 +260,9 @@ public class Service {
 				str.addCars(c1);
 			}
 			
-			str.sortManufacturing();;
+			str.sortManufacturing();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -274,6 +287,8 @@ public class Service {
 			}
 			
 //			str.displayAllCars();
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -295,6 +310,8 @@ public class Service {
 				int count = rs.getInt(1);
 				System.out.println("Number of cars for brand " + brand + ": " + count);
 			}
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -318,6 +335,8 @@ public class Service {
 				
 				System.out.println(brand+" has "+count+" cars");
 			}
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -341,6 +360,8 @@ public class Service {
 				
 				System.out.println(count+" Car is manuFactured in year: "+manu);
 			}
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -364,6 +385,8 @@ public class Service {
 				
 				System.out.println(count+" Car is present in "+color+" Color");
 			}
+			preparedStatement.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
